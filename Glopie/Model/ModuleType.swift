@@ -11,20 +11,20 @@ import Foundation
 class ModuleType: NSObject, Codable {
     var moduleTypeId: Int
     var name: String
-    var moduleTypeDescription: String
+    var detail: String
     var image: Data
     
     override init() {
         moduleTypeId = 0
         name = ""
-        moduleTypeDescription = ""
+        detail = ""
         image = Data()
     }
     
     init(moduleTypeId: Int, name: String, moduleTypeDescription: String, image: Data) {
         self.moduleTypeId = moduleTypeId
         self.name = name
-        self.moduleTypeDescription = moduleTypeDescription
+        self.detail = detail
         self.image = image
     }
     
