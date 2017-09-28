@@ -9,7 +9,7 @@ import Foundation
 
 class Thing: NSObject, Codable {
     var thingId: Int
-    var title: String
+    var name: String
     var detail: String
     var image: Data
     var date: Date
@@ -19,7 +19,7 @@ class Thing: NSObject, Codable {
     
     override init() {
         thingId = 0
-        title = ""
+        name = ""
         detail = ""
         image = Data()
         date = Date()
@@ -28,9 +28,9 @@ class Thing: NSObject, Codable {
         nextOwner = User.empty
     }
     
-    init(thingId: Int, title: String, detail: String, image: Data, date: Date, owner: User, previousOwner: User, nextOwner: User) {
+    init(thingId: Int, name: String, detail: String, image: Data, date: Date, owner: User, previousOwner: User, nextOwner: User) {
         self.thingId = thingId
-        self.title = title
+        self.name = name
         self.detail = detail
         self.image = image
         self.date = date

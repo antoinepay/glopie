@@ -7,16 +7,16 @@
 
 import Foundation
 
-class WhoHasModule: GroupModule {
-    var things: [Thing]
+class ItineraryModule: GroupModule {
+    var rents: [Rent]
     
     override init() {
-        things = []
+        rents = []
         super.init()
     }
     
-    init(things: [Thing], idModule: Int, moduleType: ModuleType, revision: Int, appVersion: String) {
-        self.things = things
+    init(rents: [Rent], idModule: Int, moduleType: ModuleType, revision: Int, appVersion: String) {
+        self.rents = rents
         super.init(idModule: idModule, moduleType: moduleType, revision: revision, appVersion: appVersion)
     }
     
@@ -24,5 +24,8 @@ class WhoHasModule: GroupModule {
         fatalError("init(from:) has not been implemented")
     }
     
-    static let empty = WhoHasModule()
+    static let empty = ItineraryModule()
 }
+
+
+
