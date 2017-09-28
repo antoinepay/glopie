@@ -1,5 +1,5 @@
 //
-//  ReminderModule.swift
+//  File.swift
 //  Glopie
 //
 //  Created by Luc on 28/09/2017.
@@ -7,16 +7,16 @@
 
 import Foundation
 
-class ReminderModule: GroupModule {
-    var reminders: [Reminder]
+class TodoModule: GroupModule {
+    var todos: [Todo]
     
     override init() {
-        reminders = []
+        todos = []
         super.init()
     }
     
-    init(reminders: [Reminder], idModule: Int, moduleType: ModuleType, revision: Int, appVersion: String) {
-        self.reminders = reminders
+    init(todos: [Todo] idModule: Int, moduleType: ModuleType, revision: Int, appVersion: String) {
+        self.todos = todos
         super.init(idModule: idModule, moduleType: moduleType, revision: revision, appVersion: appVersion)
     }
     
@@ -24,5 +24,5 @@ class ReminderModule: GroupModule {
         fatalError("init(from:) has not been implemented")
     }
     
-    static let empty = ReminderModule()
+    static let empty = TodoModule()
 }

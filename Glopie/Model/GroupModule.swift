@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ModuleGroup: NSObject, Codable {
+class GroupModule: NSObject, Codable {
     var idModule: Int
     var moduleType: ModuleType
     var revision: Int
@@ -26,6 +26,4 @@ class ModuleGroup: NSObject, Codable {
         self.revision = revision
         self.appVersion = appVersion
     }
-    
-    static let empty = ModuleGroup()
 }

@@ -15,7 +15,7 @@ class GroupUser: NSObject, Codable {
     var detail: String
     var accessCode: String
     var groupType: GroupType
-    var modulesGroup: [ModuleGroup]
+    var modulesGroup: [GroupModule]
     var users: [User]
     var usersPending: [User]
     
@@ -30,7 +30,7 @@ class GroupUser: NSObject, Codable {
         usersPending = []
     }
     
-    init(groupUserId: Int, name: String, detail: String, accessCode: String, groupType: GroupType, modulesGroup: [ModuleGroup], users: [User], usersPending: [User]){
+    init(groupUserId: Int, name: String, detail: String, accessCode: String, groupType: GroupType, modulesGroup: [GroupModule], users: [User], usersPending: [User]){
         self.groupUserId = groupUserId
         self.name = name
         self.detail = detail

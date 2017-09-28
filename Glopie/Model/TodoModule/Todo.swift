@@ -1,5 +1,5 @@
 //
-//  Reminder.swift
+//  Todo.swift
 //  Glopie
 //
 //  Created by Luc on 28/09/2017.
@@ -7,29 +7,32 @@
 
 import Foundation
 
-class Reminder: NSObject, Codable {
-    var reminderId: Int
+class Todo: NSObject, Codable {
+    var todoId: Int
     var user: User
     var detail: String
     var startDate: Date
     var endDate: Date
+    var priority: Int
     
     override init() {
-        reminderId = 0
+        todoId = 0
         user = User.empty
         detail = ""
-        startDate = Date()
+        startDate =  Date()
         endDate = Date()
+        priority = 0
     }
     
-    init(reminderId: Int, user: User, detail: String, startDate: Date, endDate: Date) {
-        self.reminderId = reminderId
+    init(todoId: Int, user: User, detail: String, startDate: Date, endDate: Date, priority: Int) {
+        self.todoId = todoId
         self.user = user
         self.detail = detail
         self.startDate = startDate
         self.endDate = endDate
+        self.priority = priority
     }
     
-    static let empty = Reminder()
+    static let empty = Todo()
     
 }

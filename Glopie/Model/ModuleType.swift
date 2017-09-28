@@ -21,7 +21,7 @@ class ModuleType: NSObject, Codable {
         image = Data()
     }
     
-    init(moduleTypeId: Int, name: String, moduleTypeDescription: String, image: Data) {
+    init(moduleTypeId: Int, name: String, detail: String, image: Data) {
         self.moduleTypeId = moduleTypeId
         self.name = name
         self.detail = detail

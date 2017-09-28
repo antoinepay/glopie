@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		8148D83F1F7D7EC700367477 /* GroupUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148D83E1F7D7EC700367477 /* GroupUser.swift */; };
-		8167055D1F7D81A300198D51 /* ModuleGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167055C1F7D81A300198D51 /* ModuleGroup.swift */; };
+		8167055D1F7D81A300198D51 /* GroupModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167055C1F7D81A300198D51 /* GroupModule.swift */; };
 		8167055F1F7D87EB00198D51 /* GroupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167055E1F7D87EB00198D51 /* GroupType.swift */; };
 		816705611F7D89B000198D51 /* ModuleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816705601F7D89B000198D51 /* ModuleType.swift */; };
 		816705641F7D8DA500198D51 /* ReminderModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816705631F7D8DA500198D51 /* ReminderModule.swift */; };
 		816705661F7D916500198D51 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816705651F7D916500198D51 /* Reminder.swift */; };
+		8167056E1F7D999F00198D51 /* TodoModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167056D1F7D999F00198D51 /* TodoModule.swift */; };
+		816705701F7D99AE00198D51 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167056F1F7D99AE00198D51 /* Todo.swift */; };
 		8C43A7791F7BE7EE001C6332 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43A7781F7BE7EE001C6332 /* AppDelegate.swift */; };
 		8C43A77B1F7BE7EE001C6332 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43A77A1F7BE7EE001C6332 /* LoginViewController.swift */; };
 		8C43A7811F7BE7EE001C6332 /* Glopie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C43A77F1F7BE7EE001C6332 /* Glopie.xcdatamodeld */; };
@@ -36,11 +38,13 @@
 		3BE83542866D67A683A2290D /* Pods-Glopie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Glopie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Glopie/Pods-Glopie.release.xcconfig"; sourceTree = "<group>"; };
 		51409145DEC3AC3BB954FF88 /* Pods-Glopie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Glopie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Glopie/Pods-Glopie.debug.xcconfig"; sourceTree = "<group>"; };
 		8148D83E1F7D7EC700367477 /* GroupUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupUser.swift; sourceTree = "<group>"; };
-		8167055C1F7D81A300198D51 /* ModuleGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleGroup.swift; sourceTree = "<group>"; };
+		8167055C1F7D81A300198D51 /* GroupModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupModule.swift; sourceTree = "<group>"; };
 		8167055E1F7D87EB00198D51 /* GroupType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupType.swift; sourceTree = "<group>"; };
 		816705601F7D89B000198D51 /* ModuleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleType.swift; sourceTree = "<group>"; };
 		816705631F7D8DA500198D51 /* ReminderModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderModule.swift; sourceTree = "<group>"; };
 		816705651F7D916500198D51 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		8167056D1F7D999F00198D51 /* TodoModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoModule.swift; sourceTree = "<group>"; };
+		8167056F1F7D99AE00198D51 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		8C43A7751F7BE7EE001C6332 /* Glopie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glopie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C43A7781F7BE7EE001C6332 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C43A77A1F7BE7EE001C6332 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +85,50 @@
 				816705651F7D916500198D51 /* Reminder.swift */,
 			);
 			path = ReminderModule;
+			sourceTree = "<group>";
+		};
+		816705671F7D97A500198D51 /* TodoModule */ = {
+			isa = PBXGroup;
+			children = (
+				8167056D1F7D999F00198D51 /* TodoModule.swift */,
+				8167056F1F7D99AE00198D51 /* Todo.swift */,
+			);
+			path = TodoModule;
+			sourceTree = "<group>";
+		};
+		816705681F7D97B100198D51 /* ExpenseModule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ExpenseModule;
+			sourceTree = "<group>";
+		};
+		816705691F7D97BA00198D51 /* GossipModule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = GossipModule;
+			sourceTree = "<group>";
+		};
+		8167056A1F7D97C700198D51 /* InformationModule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = InformationModule;
+			sourceTree = "<group>";
+		};
+		8167056B1F7D97D000198D51 /* ItineraryModule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ItineraryModule;
+			sourceTree = "<group>";
+		};
+		8167056C1F7D97DB00198D51 /* WhoHasModule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WhoHasModule;
 			sourceTree = "<group>";
 		};
 		8C1839181F7C435A0005EB6B /* Repository */ = {
@@ -163,10 +211,16 @@
 		8C43A7941F7BF49D001C6332 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8167056C1F7D97DB00198D51 /* WhoHasModule */,
+				8167056B1F7D97D000198D51 /* ItineraryModule */,
+				8167056A1F7D97C700198D51 /* InformationModule */,
+				816705691F7D97BA00198D51 /* GossipModule */,
+				816705681F7D97B100198D51 /* ExpenseModule */,
+				816705671F7D97A500198D51 /* TodoModule */,
 				816705621F7D8D8C00198D51 /* ReminderModule */,
 				8C43A7951F7BF4AA001C6332 /* User.swift */,
 				8148D83E1F7D7EC700367477 /* GroupUser.swift */,
-				8167055C1F7D81A300198D51 /* ModuleGroup.swift */,
+				8167055C1F7D81A300198D51 /* GroupModule.swift */,
 				8167055E1F7D87EB00198D51 /* GroupType.swift */,
 				816705601F7D89B000198D51 /* ModuleType.swift */,
 			);
@@ -359,9 +413,11 @@
 				8C4A703C1F7C9D60004259F1 /* LoginRepository.swift in Sources */,
 				8148D83F1F7D7EC700367477 /* GroupUser.swift in Sources */,
 				816705611F7D89B000198D51 /* ModuleType.swift in Sources */,
-				8167055D1F7D81A300198D51 /* ModuleGroup.swift in Sources */,
+				8167055D1F7D81A300198D51 /* GroupModule.swift in Sources */,
 				8167055F1F7D87EB00198D51 /* GroupType.swift in Sources */,
+				8167056E1F7D999F00198D51 /* TodoModule.swift in Sources */,
 				8C4A70331F7C947F004259F1 /* HTTPClient.swift in Sources */,
+				816705701F7D99AE00198D51 /* Todo.swift in Sources */,
 				8C75543E1F7CBA9900E9B0CC /* HTTPRequest.swift in Sources */,
 				8C43A7811F7BE7EE001C6332 /* Glopie.xcdatamodeld in Sources */,
 				8C43A7791F7BE7EE001C6332 /* AppDelegate.swift in Sources */,
