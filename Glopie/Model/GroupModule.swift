@@ -8,20 +8,20 @@
 import Foundation
 
 class GroupModule: NSObject, Codable {
-    var idModule: Int
+    var moduleId: Int
     var moduleType: ModuleType
     var revision: Int
     var appVersion: String
     
     override init() {
-        idModule = 0
+        moduleId = 0
         moduleType = ModuleType.empty
         revision = 0
         appVersion = ""
     }
     
-    init(idModule: Int, moduleType: ModuleType, revision: Int, appVersion: String) {
-        self.idModule = idModule
+    init(moduleId: Int, moduleType: ModuleType, revision: Int, appVersion: String) {
+        self.moduleId = moduleId
         self.moduleType = moduleType
         self.revision = revision
         self.appVersion = appVersion

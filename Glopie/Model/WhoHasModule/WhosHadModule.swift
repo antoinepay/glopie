@@ -15,9 +15,9 @@ class WhoHasModule: GroupModule {
         super.init()
     }
     
-    init(things: [Thing], idModule: Int, moduleType: ModuleType, revision: Int, appVersion: String) {
+    init(things: [Thing], moduleId: Int, moduleType: ModuleType, revision: Int, appVersion: String) {
         self.things = things
-        super.init(idModule: idModule, moduleType: moduleType, revision: revision, appVersion: appVersion)
+        super.init(moduleId: moduleId, moduleType: moduleType, revision: revision, appVersion: appVersion)
     }
     
     required init(from decoder: Decoder) throws {

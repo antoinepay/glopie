@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8148D83F1F7D7EC700367477 /* GroupUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148D83E1F7D7EC700367477 /* GroupUser.swift */; };
+		8148D83F1F7D7EC700367477 /* UserGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148D83E1F7D7EC700367477 /* UserGroup.swift */; };
 		8167055D1F7D81A300198D51 /* GroupModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167055C1F7D81A300198D51 /* GroupModule.swift */; };
 		8167055F1F7D87EB00198D51 /* GroupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167055E1F7D87EB00198D51 /* GroupType.swift */; };
 		816705611F7D89B000198D51 /* ModuleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816705601F7D89B000198D51 /* ModuleType.swift */; };
@@ -46,7 +46,7 @@
 		0556DA18FB45498D6C16AF3F /* Pods_Glopie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Glopie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BE83542866D67A683A2290D /* Pods-Glopie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Glopie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Glopie/Pods-Glopie.release.xcconfig"; sourceTree = "<group>"; };
 		51409145DEC3AC3BB954FF88 /* Pods-Glopie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Glopie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Glopie/Pods-Glopie.debug.xcconfig"; sourceTree = "<group>"; };
-		8148D83E1F7D7EC700367477 /* GroupUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupUser.swift; sourceTree = "<group>"; };
+		8148D83E1F7D7EC700367477 /* UserGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroup.swift; sourceTree = "<group>"; };
 		8167055C1F7D81A300198D51 /* GroupModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupModule.swift; sourceTree = "<group>"; };
 		8167055E1F7D87EB00198D51 /* GroupType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupType.swift; sourceTree = "<group>"; };
 		816705601F7D89B000198D51 /* ModuleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleType.swift; sourceTree = "<group>"; };
@@ -246,7 +246,7 @@
 				816705671F7D97A500198D51 /* TodoModule */,
 				816705621F7D8D8C00198D51 /* ReminderModule */,
 				8C43A7951F7BF4AA001C6332 /* User.swift */,
-				8148D83E1F7D7EC700367477 /* GroupUser.swift */,
+				8148D83E1F7D7EC700367477 /* UserGroup.swift */,
 				8167055C1F7D81A300198D51 /* GroupModule.swift */,
 				8167055E1F7D87EB00198D51 /* GroupType.swift */,
 				816705601F7D89B000198D51 /* ModuleType.swift */,
@@ -443,7 +443,7 @@
 				816705641F7D8DA500198D51 /* ReminderModule.swift in Sources */,
 				8C4A703C1F7C9D60004259F1 /* LoginRepository.swift in Sources */,
 				816705741F7DA0C700198D51 /* Thing.swift in Sources */,
-				8148D83F1F7D7EC700367477 /* GroupUser.swift in Sources */,
+				8148D83F1F7D7EC700367477 /* UserGroup.swift in Sources */,
 				816705611F7D89B000198D51 /* ModuleType.swift in Sources */,
 				8167055D1F7D81A300198D51 /* GroupModule.swift in Sources */,
 				8167055F1F7D87EB00198D51 /* GroupType.swift in Sources */,

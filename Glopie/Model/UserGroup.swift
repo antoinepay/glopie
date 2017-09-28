@@ -9,8 +9,8 @@
 import Foundation
 
 
-class GroupUser: NSObject, Codable {
-    var groupUserId: Int
+class UserGroup: NSObject, Codable {
+    var userGroupId: Int
     var name: String
     var detail: String
     var accessCode: String
@@ -20,7 +20,7 @@ class GroupUser: NSObject, Codable {
     var usersPending: [User]
     
     override init() {
-        groupUserId = 0
+        userGroupId = 0
         name = ""
         detail = ""
         accessCode = ""
@@ -30,8 +30,8 @@ class GroupUser: NSObject, Codable {
         usersPending = []
     }
     
-    init(groupUserId: Int, name: String, detail: String, accessCode: String, groupType: GroupType, modulesGroup: [GroupModule], users: [User], usersPending: [User]){
-        self.groupUserId = groupUserId
+    init(userGroupId: Int, name: String, detail: String, accessCode: String, groupType: GroupType, modulesGroup: [GroupModule], users: [User], usersPending: [User]){
+        self.userGroupId = userGroupId
         self.name = name
         self.detail = detail
         self.accessCode = accessCode
@@ -41,7 +41,7 @@ class GroupUser: NSObject, Codable {
         self.usersPending = usersPending
     }
     
-    static let empty = GroupUser()
+    static let empty = UserGroup()
     
     
 }

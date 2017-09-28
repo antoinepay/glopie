@@ -15,9 +15,9 @@ class InformationModule: GroupModule {
         super.init()
     }
     
-    init(informations: [Information], idModule: Int, moduleType: ModuleType, revision: Int, appVersion: String) {
+    init(informations: [Information], moduleId: Int, moduleType: ModuleType, revision: Int, appVersion: String) {
         self.informations = informations
-        super.init(idModule: idModule, moduleType: moduleType, revision: revision, appVersion: appVersion)
+        super.init(moduleId: moduleId, moduleType: moduleType, revision: revision, appVersion: appVersion)
     }
     
     required init(from decoder: Decoder) throws {
