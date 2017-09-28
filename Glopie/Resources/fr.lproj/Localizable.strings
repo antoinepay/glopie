@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  Glopie
+
+  Created by Antoine Payan on 27/09/2017.
+  
+*/
+
+"serviceUnavailable" = "Le serveur est actuellement injoignable";
+"personalized" = "A personnaliser";
+"unauthorized" = "Vous n'êtes pas autorisé à consulter cette ressource";
+"notFound" = "La ressource demandée n'existe pas";
+"unprocessableEntity" = "Impossible de traiter votre demande";
+"unspecified" = "Erreur inconnu, veuillez réessayer";
+"notConnectedToInternet" = "Vous n'êtes pas connecté à Internet";
+"badParameters" = "Les paramètres fournis sont incorrects";
