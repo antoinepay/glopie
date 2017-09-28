@@ -15,7 +15,7 @@ class TodoModule: GroupModule {
         super.init()
     }
     
-    init(todos: [Todo] idModule: Int, moduleType: ModuleType, revision: Int, appVersion: String) {
+    init(todos: [Todo], idModule: Int, moduleType: ModuleType, revision: Int, appVersion: String) {
         self.todos = todos
         super.init(idModule: idModule, moduleType: moduleType, revision: revision, appVersion: appVersion)
     }

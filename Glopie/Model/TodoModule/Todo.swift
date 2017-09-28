@@ -19,7 +19,7 @@ class Todo: NSObject, Codable {
         todoId = 0
         user = User.empty
         detail = ""
-        startDate =  Date()
+        startDate = Date()
         endDate = Date()
         priority = 0
     }
