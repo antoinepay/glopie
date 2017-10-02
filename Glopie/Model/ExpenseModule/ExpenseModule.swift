@@ -15,9 +15,9 @@ class ExpenseModule: GroupModule {
         super.init()
     }
     
-    init(expenses: [Expense], moduleId: Int, moduleType: ModuleType, revision: Int, appVersion: String) {
+    init(expenses: [Expense], moduleId: Int, moduleType: ModuleType, revision: Int) {
         self.expenses = expenses
-        super.init(moduleId: moduleId, moduleType: moduleType, revision: revision, appVersion: appVersion)
+        super.init(moduleId: moduleId, moduleType: moduleType, revision: revision)
     }
     
     required init(from decoder: Decoder) throws {

@@ -18,9 +18,12 @@ private struct Constants {
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate, LoginViewContract, GIDSignInDelegate {
 
-    @IBOutlet weak private var googleSignInButton: GIDSignInButton!
     @IBOutlet weak private var profilePictureImageView: UIImageView!
-    @IBOutlet weak private var facebookButton: FBSDKLoginButton!
+    @IBOutlet weak private var googleSignInButton: UIButton!
+    @IBOutlet weak private var facebookButton: UIButton!
+    @IBOutlet weak private var stackView: UIStackView!
+    @IBOutlet weak private var glopieImage: UIImageView!
+    
 
     private let factory: Factory
     lazy private var loginRepository = self.factory.getLoginRepository(viewContract: self)
@@ -40,11 +43,24 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, LoginViewContr
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let backgroundGradient = CAGradientLayer()
+        backgroundGradient.frame = view.frame
+        backgroundGradient.colors = [UIColor(hexString: "F45C43").cgColor, UIColor(hexString: "EB3349").cgColor]
+        stackView.layer.insertSublayer(backgroundGradient, at: 0)
+        if GIDSignIn.sharedInstance().currentUser != nil || FBSDKAccessToken.current() != nil {
+            presentHome(animated: false)
+        }
+    }
 
     //MARK: - LoginViewContract
 
     func facebookToken(_ user: User) {
+        User.eraseUserFromUserDefaults()
         User.saveToUserDefaults(user)
+        presentHome(animated: true)
     }
 
     func handleFacebookTokenError(_ error: HTTPError) {
@@ -53,7 +69,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, LoginViewContr
 
 
     func googleSignInAPI(_ user: User) {
+        User.eraseUserFromUserDefaults()
         User.saveToUserDefaults(user)
+        presentHome(animated: true)
     }
 
     func handleGoogleSignInAPIError(_ error: HTTPError) {
@@ -73,7 +91,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, LoginViewContr
             lastname: userGG.profile.familyName,
             email: userGG.profile.email,
             token: userGG.authentication.accessToken,
-            logType: .google
+            logType: .google,
+            picture: userGG.profile.imageURL(withDimension: 128).absoluteString
         )
         loginRepository.googleSignIn(user: user)
     }
@@ -81,9 +100,28 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, LoginViewContr
     //MARK: - Private
 
     private func setupView() {
-        googleSignInButton.style = .iconOnly
-        googleSignInButton.colorScheme = .dark
+        glopieImage.image = UIImage(named: "GlopieIcon.png")
+        
+        googleSignInButton.setTitle("Continue with google", for: .normal)
+        googleSignInButton.setTitleColor(UIColor(hexString: "555555"), for: .normal)
+        googleSignInButton.titleLabel?.font = UIFont(name: "Avenie", size: 15.0)
+        googleSignInButton.backgroundColor = .white
+        googleSignInButton.layer.cornerRadius = 4
+        googleSignInButton.setImage(UIImage(named: "googleIcon"), for: UIControlState.normal)
+        googleSignInButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 30)
+        googleSignInButton.addTarget(self, action: #selector(loginGoogle(_:)), for: .touchUpInside)
+        googleSignInButton.clipsToBounds = true
+        
+        facebookButton.setTitle("continueWithFB".localized(), for: .normal)
+        facebookButton.setTitleColor(.white, for: .normal)
+        facebookButton.titleLabel?.font = UIFont(name: "Avenie", size: 15.0)
+        facebookButton.backgroundColor = UIColor(hexString: "3C5193")
+        facebookButton.layer.cornerRadius = 4
+        facebookButton.setImage(UIImage(named: "facebookIcon"), for: UIControlState.normal)
+        facebookButton.tintColor = .white
+        facebookButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 30)
         facebookButton.addTarget(self, action: #selector(loginFacebook(_:)), for: .touchUpInside)
+        facebookButton.clipsToBounds = true
     }
 
     @objc private func loginFacebook(_ sender: Any) {
@@ -103,6 +141,18 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, LoginViewContr
         }
     }
 
+    @objc private func loginGoogle(_ sender: Any) {
+        if GIDSignIn.sharedInstance().currentUser == nil {
+            GIDSignIn.sharedInstance().signIn()
+        }
+    }
+    
+    private func presentHome(animated: Bool) {
+        let mainTabBarController = MainTabBarController()
+        mainTabBarController.modalTransitionStyle = .flipHorizontal
+        present(mainTabBarController, animated: true)
+    }
+    
     // Present a view that prompts the user to sign in with Google
     func sign(_ signIn: GIDSignIn!,
               present viewController: UIViewController!) {

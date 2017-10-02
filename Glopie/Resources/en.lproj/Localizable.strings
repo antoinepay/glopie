@@ -14,3 +14,4 @@
 "unspecified" = "Erreur inconnu, veuillez réessayer";
 "notConnectedToInternet" = "Vous n'êtes pas connecté à Internet";
 "badParameters" = "Les paramètres fournis sont incorrects";
+"continueWithFB" = "Continue with Facebook";

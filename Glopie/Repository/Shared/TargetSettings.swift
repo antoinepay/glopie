@@ -8,6 +8,6 @@
 import Foundation
 
 struct TargetSettings {
-    static let serverUrl = "http://localhost:3000/api/"
-    static let authenticate = "http://localhost:3000/api/authenticate/facebook"
+    static let serverUrl = "http://vps402547.ovh.net/api/"
+    static let authenticate = TargetSettings.serverUrl + "authenticate/social"
 }

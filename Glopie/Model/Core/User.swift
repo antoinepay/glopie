@@ -20,6 +20,7 @@ class User: NSObject, Codable {
     var email: String
     var token: String
     var logType: LogType
+    var picture: String
 
     override init() {
         externalId = ""
@@ -28,15 +29,17 @@ class User: NSObject, Codable {
         email = ""
         token = ""
         logType = .unknown
+        picture = ""
     }
 
-    init(externalId: String, firstname: String, lastname: String, email: String, token: String, logType: LogType) {
+    init(externalId: String, firstname: String, lastname: String, email: String, token: String, logType: LogType, picture: String) {
         self.externalId = externalId
         self.firstname = firstname
         self.lastname = lastname
         self.email = email
         self.token = token
         self.logType = logType
+        self.picture = picture
     }
 
     static let empty = User()

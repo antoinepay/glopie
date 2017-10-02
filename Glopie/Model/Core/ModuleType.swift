@@ -13,19 +13,22 @@ class ModuleType: NSObject, Codable {
     var name: String
     var detail: String
     var image: Data
+    var appVersion: String
     
     override init() {
         moduleTypeId = 0
         name = ""
         detail = ""
         image = Data()
+        appVersion = ""
     }
     
-    init(moduleTypeId: Int, name: String, detail: String, image: Data) {
+    init(moduleTypeId: Int, name: String, detail: String, image: Data, appVersion: String) {
         self.moduleTypeId = moduleTypeId
         self.name = name
         self.detail = detail
         self.image = image
+        self.appVersion = appVersion
     }
     
     static let empty = ModuleType()

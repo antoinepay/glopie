@@ -17,6 +17,9 @@ class JSONParserImplementation: JSONParser {
             let firstname = user["first_name"] as? String,
             let lastname = user["last_name"] as? String,
             let email = user["email"] as? String,
+            let pictureObject = user["picture"] as? [String:Any],
+            let pictureData = pictureObject["data"] as? [String:Any],
+            let picture = pictureData["url"] as? String,
             let token = FBSDKAccessToken.current().tokenString else {
                 return User.empty
             }
@@ -26,7 +29,8 @@ class JSONParserImplementation: JSONParser {
             lastname: lastname,
             email: email,
             token: token,
-            logType: .facebook
+            logType: .facebook,
+            picture: picture
         )
     }
 
@@ -41,7 +45,8 @@ class JSONParserImplementation: JSONParser {
             let externalId = user["externalId"] as? String,
             let firstname = user["firstname"] as? String,
             let lastname = user["lastname"] as? String,
-            let email = user["email"] as? String else {
+            let email = user["email"] as? String,
+            let picture = user["picture"] as? String else {
                 return User.empty
         }
         return User(
@@ -50,7 +55,8 @@ class JSONParserImplementation: JSONParser {
             lastname: lastname,
             email: email,
             token: token,
-            logType: .facebook
+            logType: .facebook,
+            picture: picture
         )
     }
 }

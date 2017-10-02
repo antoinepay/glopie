@@ -15,9 +15,9 @@ class ItineraryModule: GroupModule {
         super.init()
     }
     
-    init(rents: [Rent], moduleId: Int, moduleType: ModuleType, revision: Int, appVersion: String) {
+    init(rents: [Rent], moduleId: Int, moduleType: ModuleType, revision: Int) {
         self.rents = rents
-        super.init(moduleId: moduleId, moduleType: moduleType, revision: revision, appVersion: appVersion)
+        super.init(moduleId: moduleId, moduleType: moduleType, revision: revision)
     }
     
     required init(from decoder: Decoder) throws {

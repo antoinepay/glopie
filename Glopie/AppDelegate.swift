@@ -19,15 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-
+        
         var configureError: NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configuring Google services:" + configureError.debugDescription)
 
-        
-
+        setupGlobalSettings()
+        //User.eraseUserFromUserDefaults()
         window = UIWindow(frame: UIScreen.main.bounds)
-        let viewController = LoginViewController(factory: factory)
+        let viewController = (GIDSignIn.sharedInstance().currentUser == nil && FBSDKAccessToken.current() == nil) ? LoginViewController(factory: factory) : MainTabBarController()
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()
         return true
@@ -113,6 +113,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             // Fallback on earlier versions
         }
+    }
+    
+    // MARK : Private
+    
+    private func setupGlobalSettings() {
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
     }
 
 }

@@ -11,19 +11,16 @@ class GroupModule: NSObject, Codable {
     var moduleId: Int
     var moduleType: ModuleType
     var revision: Int
-    var appVersion: String
     
     override init() {
         moduleId = 0
         moduleType = ModuleType.empty
         revision = 0
-        appVersion = ""
     }
     
-    init(moduleId: Int, moduleType: ModuleType, revision: Int, appVersion: String) {
+    init(moduleId: Int, moduleType: ModuleType, revision: Int) {
         self.moduleId = moduleId
         self.moduleType = moduleType
         self.revision = revision
-        self.appVersion = appVersion
     }
 }

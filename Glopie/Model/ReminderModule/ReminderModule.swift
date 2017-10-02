@@ -15,9 +15,9 @@ class ReminderModule: GroupModule {
         super.init()
     }
     
-    init(reminders: [Reminder], moduleId: Int, moduleType: ModuleType, revision: Int, appVersion: String) {
+    init(reminders: [Reminder], moduleId: Int, moduleType: ModuleType, revision: Int) {
         self.reminders = reminders
-        super.init(moduleId: moduleId, moduleType: moduleType, revision: revision, appVersion: appVersion)
+        super.init(moduleId: moduleId, moduleType: moduleType, revision: revision)
     }
     
     required init(from decoder: Decoder) throws {

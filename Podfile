@@ -9,6 +9,8 @@ target 'Glopie' do
 	pod 'FBSDKShareKit'
 	pod 'Alamofire'
 	pod 'Google/SignIn'
+	pod "ESTabBarController-swift"
+	pod 'FontAwesome.swift'
   # Pods for Glopie
 
 end

@@ -15,9 +15,9 @@ class TodoModule: GroupModule {
         super.init()
     }
     
-    init(todos: [Todo], moduleId: Int, moduleType: ModuleType, revision: Int, appVersion: String) {
+    init(todos: [Todo], moduleId: Int, moduleType: ModuleType, revision: Int) {
         self.todos = todos
-        super.init(moduleId: moduleId, moduleType: moduleType, revision: revision, appVersion: appVersion)
+        super.init(moduleId: moduleId, moduleType: moduleType, revision: revision)
     }
     
     required init(from decoder: Decoder) throws {
