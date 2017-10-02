@@ -11,6 +11,7 @@ target 'Glopie' do
 	pod 'Google/SignIn'
 	pod "ESTabBarController-swift"
 	pod 'FontAwesome.swift'
+	pod 'SDWebImage', '~> 4.0'
   # Pods for Glopie
 
 end
