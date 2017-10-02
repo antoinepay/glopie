@@ -27,8 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupGlobalSettings()
         //User.eraseUserFromUserDefaults()
         window = UIWindow(frame: UIScreen.main.bounds)
-        let viewController = (GIDSignIn.sharedInstance().currentUser == nil && FBSDKAccessToken.current() == nil) ? LoginViewController(factory: factory) : MainTabBarController()
-        window?.rootViewController = viewController
+        window?.rootViewController = LoginViewController(factory: factory)
         window?.makeKeyAndVisible()
         return true
     }

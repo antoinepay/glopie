@@ -50,6 +50,10 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, LoginViewContr
         backgroundGradient.frame = view.frame
         backgroundGradient.colors = [UIColor(hexString: "F45C43").cgColor, UIColor(hexString: "EB3349").cgColor]
         stackView.layer.insertSublayer(backgroundGradient, at: 0)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         if GIDSignIn.sharedInstance().currentUser != nil || FBSDKAccessToken.current() != nil {
             presentHome(animated: false)
         }

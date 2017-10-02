@@ -27,16 +27,12 @@ class AccountViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        setupNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        setupNavigationBar()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        super.viewWillAppear(animated)
+        
     }
     
     // MARK : Private
@@ -55,9 +51,7 @@ class AccountViewController: UIViewController, UITableViewDelegate {
     }
     
     private func setupNavigationBar() {
-        let rightItemImage = UIImage(named: "logout")
-        let rightItem = UIBarButtonItem(image: rightItemImage, style: .plain, target: self, action: #selector(logout))
-        rightItem.tintColor = UIColor(hexString: "FF7F7F")
+        let rightItem = UIBarButtonItem(image: UIImage(named: "logout"), style: .plain, target: self, action: #selector(logout))
         navigationItem.rightBarButtonItem = rightItem
     }
     
