@@ -43,11 +43,16 @@ class AccountViewController: UIViewController, UITableViewDelegate {
         picture.contentMode = .scaleAspectFill
         if let user = user {
             let url = URL(string: user.picture)
-            let placeholder = UIImage.createInitialImage(from: user, with: CGSize(width: 80, height: 80))
-            picture.image = placeholder
+            if user.picture.isEmpty {
+                picture.image = picture.image(with: user)
+            }
             picture.sd_setShowActivityIndicatorView(true)
             picture.sd_setIndicatorStyle(.gray)
-            //picture.sd_setImage(with: url ?? URL(string: "#"), placeholderImage: placeholder, options: SDWebImageOptions.continueInBackground, completed: nil)
+            picture.sd_setImage(
+                with: url ?? URL(string: "#"),
+                placeholderImage: picture.image(with: user),
+                options: SDWebImageOptions.continueInBackground,
+                completed: nil)
         }
 
         addImage.setImage(UIImage.fontAwesomeIcon(name: .plus, textColor: .white, size: CGSize(width: 20, height: 20)), for: .normal)
