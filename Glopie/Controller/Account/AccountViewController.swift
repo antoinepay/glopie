@@ -11,13 +11,13 @@ import GoogleSignIn
 import FBSDKLoginKit
 import SDWebImage
 
-class AccountViewController: UIViewController, UITableViewDelegate {
+class AccountViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak private var picture: UIImageView!
-    @IBOutlet weak private var addImage: UIButton!
     @IBOutlet weak private var tableView: UITableView!
 
     private var user: User?
+    private var attributes: [AccountTableViewCellLabelViewModel] = []
     
     init() {
         super.init(nibName: "AccountViewController", bundle: nil)
@@ -32,13 +32,37 @@ class AccountViewController: UIViewController, UITableViewDelegate {
         user = User.retrieveFromUserDefaults()
         setupView()
         setupNavigationBar()
+        setupViewModel()
     }
+    
+    // MARK : UITableViewDataSource
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return attributes.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AccountLabelTableViewCell")! as? AccountLabelTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.setup(model: attributes[indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(attributes[indexPath.row].rowHeight)
+    }
+    
     
     // MARK : Private
     
     private func setupView() {
         picture.backgroundColor = .black
-        picture.layer.cornerRadius = 40
+        picture.layer.cornerRadius = 50
         picture.clipsToBounds = true
         picture.contentMode = .scaleAspectFill
         if let user = user {
@@ -54,18 +78,23 @@ class AccountViewController: UIViewController, UITableViewDelegate {
                 options: SDWebImageOptions.continueInBackground,
                 completed: nil)
         }
-
-        addImage.setImage(UIImage.fontAwesomeIcon(name: .plus, textColor: .white, size: CGSize(width: 20, height: 20)), for: .normal)
-        addImage.tintColor = .white
-        addImage.setTitle("", for: .normal)
-        addImage.setBackgroundColor(UIColor(hexString: "50D2C2"), forState: .normal)
-        addImage.layer.cornerRadius = 12.5
-        addImage.clipsToBounds = true
+        
+        let nib = UINib(nibName: "AccountLabelTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "AccountLabelTableViewCell")
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     private func setupNavigationBar() {
         let rightItem = UIBarButtonItem(image: UIImage(named: "logout"), style: .plain, target: self, action: #selector(logout))
         navigationItem.rightBarButtonItem = rightItem
+    }
+    
+    private func setupViewModel() {
+        attributes = [AccountTableViewCellLabelViewModel]()
+        attributes.append(AccountTableViewCellLabelViewModel(labelText: "Firstname", labelTextColor: "1D1D26", labelFontName: "Avenir", labelFontSize: 11, rowHeight: 60, labelTextAlignment: NSTextAlignment.left.rawValue, valueText: (user?.firstname)!, valueTextColor: "1D1D26", valueFontName: "Avenir", valueFontSize: 16, valueTextAlignment: NSTextAlignment.left.rawValue))
+        attributes.append(AccountTableViewCellLabelViewModel(labelText: "Lastname", labelTextColor: "1D1D26", labelFontName: "Avenir", labelFontSize: 11, rowHeight: 60, labelTextAlignment: NSTextAlignment.left.rawValue, valueText: (user?.lastname)!, valueTextColor: "1D1D26", valueFontName: "Avenir", valueFontSize: 16, valueTextAlignment: NSTextAlignment.left.rawValue))
+        attributes.append(AccountTableViewCellLabelViewModel(labelText: "Email address", labelTextColor: "1D1D26", labelFontName: "Avenir", labelFontSize: 11, rowHeight: 60, labelTextAlignment: NSTextAlignment.left.rawValue, valueText: (user?.email)!, valueTextColor: "1D1D26", valueFontName: "Avenir", valueFontSize: 16, valueTextAlignment: NSTextAlignment.left.rawValue))
     }
     
     @objc private func logout() {
