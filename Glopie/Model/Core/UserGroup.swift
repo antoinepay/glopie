@@ -10,7 +10,7 @@ import Foundation
 
 
 class UserGroup: NSObject, Codable {
-    var userGroupId: Int
+    var userGroupId: String
     var name: String
     var detail: String
     var accessCode: String
@@ -20,7 +20,7 @@ class UserGroup: NSObject, Codable {
     var usersPending: [User]
     
     override init() {
-        userGroupId = 0
+        userGroupId = "0"
         name = ""
         detail = ""
         accessCode = ""
@@ -30,7 +30,7 @@ class UserGroup: NSObject, Codable {
         usersPending = []
     }
     
-    init(userGroupId: Int, name: String, detail: String, accessCode: String, groupType: GroupType, modulesGroup: [GroupModule], users: [User], usersPending: [User]){
+    init(userGroupId: String, name: String, detail: String, accessCode: String, groupType: GroupType, modulesGroup: [GroupModule], users: [User], usersPending: [User]){
         self.userGroupId = userGroupId
         self.name = name
         self.detail = detail

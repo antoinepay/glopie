@@ -9,19 +9,19 @@ import Foundation
 
 
 class GroupType: NSObject, Codable {
-    var groupTypeId: Int
+    var groupTypeId: String
     var name: String
     var detail: String
     var modules: [ModuleType]
     
     override init() {
-        groupTypeId = 0
+        groupTypeId = "0"
         name = ""
         detail = ""
         modules = []
     }
     
-    init(groupTypeId: Int, name: String, detail: String, modules: [ModuleType]) {
+    init(groupTypeId: String, name: String, detail: String, modules: [ModuleType]) {
         self.groupTypeId = groupTypeId
         self.name = name
         self.detail = detail

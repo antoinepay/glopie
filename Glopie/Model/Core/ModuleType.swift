@@ -9,21 +9,21 @@ import Foundation
 
 
 class ModuleType: NSObject, Codable {
-    var moduleTypeId: Int
+    var moduleTypeId: String
     var name: String
     var detail: String
     var image: Data
     var appVersion: String
     
     override init() {
-        moduleTypeId = 0
+        moduleTypeId = "0"
         name = ""
         detail = ""
         image = Data()
         appVersion = ""
     }
     
-    init(moduleTypeId: Int, name: String, detail: String, image: Data, appVersion: String) {
+    init(moduleTypeId: String, name: String, detail: String, image: Data, appVersion: String) {
         self.moduleTypeId = moduleTypeId
         self.name = name
         self.detail = detail
