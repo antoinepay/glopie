@@ -30,9 +30,9 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         user = User.retrieveFromUserDefaults()
+        setupViewModel()
         setupView()
         setupNavigationBar()
-        setupViewModel()
     }
     
     // MARK : UITableViewDataSource
@@ -83,6 +83,7 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.register(nib, forCellReuseIdentifier: "AccountLabelTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.tableFooterView = UIView()
     }
     
     private func setupNavigationBar() {

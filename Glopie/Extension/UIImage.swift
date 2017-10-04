@@ -26,7 +26,7 @@ extension UIImageView {
         nameLabel.textAlignment = .center
         nameLabel.backgroundColor = .lightGray
         nameLabel.textColor = .white
-        nameLabel.font = UIFont.boldSystemFont(ofSize: 32)
+        nameLabel.font = UIFont.boldSystemFont(ofSize: frame.size.height / 2.0)
         let initialFirst = user.firstname.uppercased().first ?? Character("")
         let initialSecond = user.lastname.uppercased().first ?? Character("")
         let initials = String(initialFirst) + String(initialSecond)

@@ -29,18 +29,18 @@ class MainTabBarController: ESTabBarController {
             tabBar.itemCustomPositioning = ESTabBarItemPositioning.fillExcludeSeparator
         }
         
-        let homeNavigationController = UINavigationController()
+        let groupsNavigationController = GroupsNavigationController()
         let nav2 = UINavigationController()
         let accountNavigationController = AccountNavigationController()
         
-        homeNavigationController.viewControllers = [HomeViewController()]
-        nav2.viewControllers = [HomeViewController()]
+        groupsNavigationController.viewControllers = [GroupsViewController()]
+        nav2.viewControllers = [GroupsViewController()]
         accountNavigationController.viewControllers = [AccountViewController()]
-        homeNavigationController.tabBarItem = ESTabBarItem(MainTabBarItem(), title: nil, image: UIImage(named: "home"), selectedImage: UIImage(named: "home"))
+        groupsNavigationController.tabBarItem = ESTabBarItem(MainTabBarItem(), title: nil, image: UIImage(named: "home"), selectedImage: UIImage(named: "home"))
         nav2.tabBarItem = ESTabBarItem(MainTabBarItem(), title: nil, image: UIImage(named: "add"), selectedImage: UIImage(named: "add"))
         accountNavigationController.tabBarItem = ESTabBarItem(MainTabBarItem(), title: nil, image: UIImage(named: "user"), selectedImage: UIImage(named: "user"))
         
-        viewControllers = [homeNavigationController, nav2, accountNavigationController]
+        viewControllers = [groupsNavigationController, nav2, accountNavigationController]
     }
 
 }
