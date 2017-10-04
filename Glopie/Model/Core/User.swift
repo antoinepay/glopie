@@ -53,12 +53,12 @@ class User: NSObject, Codable {
         UserDefaults.standard.synchronize()
     }
 
-    static func retrieveFromUserDefaults() -> User? {
+    static func retrieveFromUserDefaults() -> User {
         let propertyListDecoder = PropertyListDecoder()
         guard
             let data = UserDefaults.standard.data(forKey: "user"),
             let user = try? propertyListDecoder.decode(User.self, from: data) else {
-            return nil
+            return empty
         }
         return user
     }

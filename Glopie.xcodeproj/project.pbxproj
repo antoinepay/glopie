@@ -59,6 +59,7 @@
 		8C4A70361F7C9502004259F1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8C4A70381F7C9502004259F1 /* Localizable.strings */; };
 		8C4A703C1F7C9D60004259F1 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4A703B1F7C9D60004259F1 /* LoginRepository.swift */; };
 		8C75543E1F7CBA9900E9B0CC /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C75543D1F7CBA9800E9B0CC /* HTTPRequest.swift */; };
+		8CA6313F1F8532FC00D07FB6 /* GroupsTableViewCellViewModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA6313E1F8532FC00D07FB6 /* GroupsTableViewCellViewModelMapper.swift */; };
 		8CD628FF1F7C1D4100EF010B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C677D031F7C197600134DF4 /* GoogleService-Info.plist */; };
 		C8DE249EB08E6DC44ADAADF9 /* Pods_Glopie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0556DA18FB45498D6C16AF3F /* Pods_Glopie.framework */; };
 /* End PBXBuildFile section */
@@ -124,6 +125,7 @@
 		8C4A703B1F7C9D60004259F1 /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
 		8C677D031F7C197600134DF4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8C75543D1F7CBA9800E9B0CC /* HTTPRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
+		8CA6313E1F8532FC00D07FB6 /* GroupsTableViewCellViewModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewCellViewModelMapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				814FCA741F83DB2C00BFAB6C /* GroupsTableViewCellViewModel.swift */,
+				8CA6313E1F8532FC00D07FB6 /* GroupsTableViewCellViewModelMapper.swift */,
 			);
 			path = Groups;
 			sourceTree = "<group>";
@@ -351,6 +354,8 @@
 		8C18391B1F7C43720005EB6B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				81092E3E1F828F5700D11F6B /* Account */,
+				814FCA731F83DB0100BFAB6C /* Groups */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -407,8 +412,6 @@
 		8C43A7941F7BF49D001C6332 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				814FCA731F83DB0100BFAB6C /* Groups */,
-				81092E3E1F828F5700D11F6B /* Account */,
 				816705851F7DC1F900198D51 /* Core */,
 				8167056C1F7D97DB00198D51 /* WhoHasModule */,
 				8167056B1F7D97D000198D51 /* ItineraryModule */,
@@ -641,6 +644,7 @@
 				8C4A70331F7C947F004259F1 /* HTTPClient.swift in Sources */,
 				816705701F7D99AE00198D51 /* Todo.swift in Sources */,
 				8C75543E1F7CBA9900E9B0CC /* HTTPRequest.swift in Sources */,
+				8CA6313F1F8532FC00D07FB6 /* GroupsTableViewCellViewModelMapper.swift in Sources */,
 				81092E4E1F83CAFE00D11F6B /* GroupsTableViewCell.swift in Sources */,
 				8167057A1F7DB78700198D51 /* Expense.swift in Sources */,
 				816705821F7DBA4E00198D51 /* ExpenseModule.swift in Sources */,

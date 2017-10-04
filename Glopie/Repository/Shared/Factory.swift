@@ -20,4 +20,12 @@ class Factory {
             viewContract: viewContract
         )
     }
+
+    func getGroupRepository(viewContract: GroupViewContract) -> GroupRepository {
+        return GroupRepositoryImplementation(
+            client: client,
+            parser: parser,
+            viewContract: viewContract
+        )
+    }
 }

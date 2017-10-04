@@ -6,15 +6,21 @@
 //
 
 import UIKit
+import Alamofire
 
-class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, GroupViewContract {
+
     @IBOutlet weak private var tableView: UITableView!
-    
+
+    private let factory: Factory
     private var user: User?
     private var groups: [GroupsTableViewCellViewModel] = []
-    init() {
-        super.init(nibName: "GroupsViewController", bundle: nil)
+
+    lazy private var groupRepository: GroupRepository = self.factory.getGroupRepository(viewContract: self)
+
+    init(factory: Factory) {
+        self.factory = factory
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -29,9 +35,29 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         setupNavigationBar()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        groupRepository.fetchUserGroups()
+        groupRepository.fetchGroupTypes()
+    }
+
+    //MARK: - GroupViewContract
+
+    func userGroupsFetched(_ userGroups: [UserGroup]) {
+        groups = GroupsTableViewCellViewModelMapper.viewModels(from: userGroups)
+        tableView.reloadData()
+    }
+
+    func handleUserGroupsError(_ error: HTTPError) {
+        print(error)
+    }
+
+    func groupTypesFetched(_ groupTypes: [GroupType]) {
+        print("groupTypesFetched")
+    }
+
+    func handleGroupTypesError(_ error: HTTPError) {
+        print(error)
     }
     
     // MARK : UITableViewDataSource
@@ -65,12 +91,15 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.tableFooterView = UIView()
         tableView.delegate = self
         tableView.dataSource = self
+
     }
     
-    private func setupNavigationBar() { }
+    private func setupNavigationBar() {
+
+    }
     
     private func setupViewModel() {
-        groups.append(GroupsTableViewCellViewModel(rowHeight: 80.0, labelsFontName: "Avenir", labelsTextAlignment: NSTextAlignment.left.rawValue, userImages: [], userImagesHeight: 50, userImagesShift: 5, groupNameText: "Group name", groupNameTextSize: 16.0, groupNameTextColor: "1D1D26", groupDetailText: "This is the group detail", groupDetailTextSize: 13.0, groupDetailTextColor: "1D1D26", groupTypeText: " Working group ", groupTypeTextSize: 9.0, groupTypeTextColor: "AA0000", groupTypeBorderColor: "AA0000", groupTypeBorderWidth: 1.0))
+        /*groups.append(GroupsTableViewCellViewModel(rowHeight: 80.0, labelsFontName: "Avenir", labelsTextAlignment: NSTextAlignment.left.rawValue, userImages: [], userImagesHeight: 50, userImagesShift: 5, groupNameText: "Group name", groupNameTextSize: 16.0, groupNameTextColor: "1D1D26", groupDetailText: "This is the group detail", groupDetailTextSize: 13.0, groupDetailTextColor: "1D1D26", groupTypeText: " Working group ", groupTypeTextSize: 9.0, groupTypeTextColor: "AA0000", groupTypeBorderColor: "AA0000", groupTypeBorderWidth: 1.0))*/
     }
 
 }

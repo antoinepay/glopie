@@ -152,7 +152,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, LoginViewContr
     }
     
     private func presentHome(animated: Bool) {
-        let mainTabBarController = MainTabBarController()
+        let mainTabBarController = MainTabBarController(factory: factory)
         mainTabBarController.modalTransitionStyle = .flipHorizontal
         present(mainTabBarController, animated: true)
     }

@@ -10,17 +10,23 @@ import ESTabBarController_swift
 
 class MainTabBarController: ESTabBarController {
 
+    private let factory: Factory
+
+    init(factory: Factory) {
+        self.factory = factory
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    //MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setup();
-        // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
     // MARK : Private
     
@@ -33,9 +39,9 @@ class MainTabBarController: ESTabBarController {
         let nav2 = UINavigationController()
         let accountNavigationController = AccountNavigationController()
         
-        groupsNavigationController.viewControllers = [GroupsViewController()]
-        nav2.viewControllers = [GroupsViewController()]
-        accountNavigationController.viewControllers = [AccountViewController()]
+        groupsNavigationController.viewControllers = [GroupsViewController(factory: factory)]
+        nav2.viewControllers = [GroupsViewController(factory: factory)]
+        accountNavigationController.viewControllers = [AccountViewController(factory: factory)]
         groupsNavigationController.tabBarItem = ESTabBarItem(MainTabBarItem(), title: nil, image: UIImage(named: "home"), selectedImage: UIImage(named: "home"))
         nav2.tabBarItem = ESTabBarItem(MainTabBarItem(), title: nil, image: UIImage(named: "add"), selectedImage: UIImage(named: "add"))
         accountNavigationController.tabBarItem = ESTabBarItem(MainTabBarItem(), title: nil, image: UIImage(named: "user"), selectedImage: UIImage(named: "user"))

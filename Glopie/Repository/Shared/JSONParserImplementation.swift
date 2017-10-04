@@ -6,6 +6,7 @@ protocol JSONParser {
     func parseFacebookResponse(user: [String: Any], from type: LogType) -> User
     func parseAPIResponse(user: [String: Any], from type: LogType) -> User
     func parseUserGroups(groups: [Any]) -> [UserGroup]
+    func parseGroupTypes(groupTypes: [Any], moduleTypes: [Any]) -> [GroupType]
 }
 
 class JSONParserImplementation: JSONParser {
@@ -67,16 +68,19 @@ class JSONParserImplementation: JSONParser {
                 let group = group as? [String:Any],
                 let id = group["_id"] as? String,
                 let name = group["name"] as? String,
-                let detail = group["detail"] as? String,
                 let accessCode = group["accessCode"] as? String,
-                let groupTypeId = group["groupType"] as? String,
+                let groupTypeArray = group["groupType"] as? [String:Any],
+                let groupTypeName = groupTypeArray["name"] as? String,
+                let groupTypeId = groupTypeArray["_id"] as? String,
                 let groupModulesArray = group["groupModules"] as? [Any],
                 let usersArray = group["users"] as? [Any],
                 let pendingUsersArray = group["pendingUsers"] as? [Any] else { return nil }
+            let detail = group["detail"] as? String ?? ""
             let users = self.parseOtherUsers(from: usersArray)
             let pendingUsers = self.parseOtherUsers(from: pendingUsersArray)
             let groupModules = self.parseGroupModules(from: groupModulesArray)
             let groupType = GroupType.empty
+            groupType.name = groupTypeName
             groupType.groupTypeId = groupTypeId
             return UserGroup(
                 userGroupId: id,
@@ -84,7 +88,7 @@ class JSONParserImplementation: JSONParser {
                 detail: detail,
                 accessCode: accessCode,
                 groupType: groupType,
-                modulesGroup: groupModules,
+                groupModules: groupModules,
                 users: users,
                 usersPending: pendingUsers
             )
@@ -117,17 +121,68 @@ class JSONParserImplementation: JSONParser {
             guard
                 let groupModule = groupModule as? [String:Any],
                 let id = groupModule["_id"] as? String,
-                let moduleTypeId = groupModule["moduleType"] as? String,
+                let moduleTypeArray = groupModule["moduleType"] as? [String:Any],
                 let userGroup = groupModule["userGroup"] as? String,
+                let moduleTypeId = moduleTypeArray["_id"] as? String,
+                let moduleTypeBackgroundColor = moduleTypeArray["backgroundColor"] as? String,
+                let moduleTypeAddButtonBackgroundColor = moduleTypeArray["addButtonBackgroundColor"] as? String,
+                let moduleTypeAppVersion = moduleTypeArray["appVersion"] as? Int,
+                let moduleTypeName = moduleTypeArray["name"] as? String,
+                let moduleTypeDetail = moduleTypeArray["detail"] as? String,
                 let revision = groupModule["revision"] as? Int else { return nil }
             let moduleType = ModuleType.empty
             moduleType.moduleTypeId = moduleTypeId
+            moduleType.appVersion = moduleTypeAppVersion
+            moduleType.name = moduleTypeName
+            moduleType.detail = moduleTypeDetail
+            moduleType.backgroundColor = moduleTypeBackgroundColor
+            moduleType.addButtonBackgroundColor = moduleTypeAddButtonBackgroundColor
             return GroupModule(
                 groupModuleId: id,
                 userGroupId: userGroup,
                 moduleType: moduleType,
                 revision: revision
             )
+        }
+    }
+
+    func parseGroupTypes(groupTypes: [Any], moduleTypes: [Any]) -> [GroupType] {
+        return groupTypes.flatMap { groupType in
+            guard
+                let groupType = groupType as? [String:Any],
+                let id = groupType["_id"] as? String,
+                let name = groupType["name"] as? String,
+                let detail = groupType["detail"] as? String,
+                let moduleTypesArray = groupType["moduleTypes"] as? [Any] else {
+                    return nil
+            }
+            let moduleTypesParsed: [ModuleType] = moduleTypes.flatMap { moduleType in
+                guard
+                    let moduleType = moduleType as? [String:Any],
+                    let id = moduleType["_id"] as? String,
+                    let backgroundColor = moduleType["backgroundColor"] as? String,
+                    let addButtonBackgroundColor = moduleType["addButtonBackgroundColor"] as? String,
+                    let appVersion = moduleType["appVersion"] as? Int,
+                    let name = moduleType["name"] as? String,
+                    let detail = moduleType["detail"] as? String else {
+                        return nil
+                }
+                for module in moduleTypesArray {
+                    if let module = module as? String, module == id {
+                        return ModuleType(
+                            moduleTypeId: id,
+                            name: name,
+                            detail: detail,
+                            image: Data(),
+                            appVersion: appVersion,
+                            backgroundColor: backgroundColor,
+                            addButtonBackgroundColor: addButtonBackgroundColor
+                        )
+                    }
+                }
+                return nil
+            }
+            return GroupType(groupTypeId: id, name: name, detail: detail, modules: moduleTypesParsed)
         }
     }
 

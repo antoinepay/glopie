@@ -11,4 +11,5 @@ struct TargetSettings {
     static let serverUrl = "http://vps402547.ovh.net/api/"
     static let authenticate = TargetSettings.serverUrl + "authenticate/social"
     static let userGroup = TargetSettings.serverUrl + "core/userGroup"
+    static let groupType = TargetSettings.serverUrl + "core/groupType"
 }

@@ -16,10 +16,12 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak private var picture: UIImageView!
     @IBOutlet weak private var tableView: UITableView!
 
+    private let factory: Factory
     private var user: User?
     private var attributes: [AccountTableViewCellLabelViewModel] = []
     
-    init() {
+    init(factory: Factory) {
+        self.factory = factory
         super.init(nibName: "AccountViewController", bundle: nil)
     }
     
