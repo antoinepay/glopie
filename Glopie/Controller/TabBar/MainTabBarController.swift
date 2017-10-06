@@ -40,11 +40,27 @@ class MainTabBarController: ESTabBarController {
         let accountNavigationController = AccountNavigationController()
         
         groupsNavigationController.viewControllers = [GroupsViewController(factory: factory)]
-        nav2.viewControllers = [GroupsViewController(factory: factory)]
+        nav2.viewControllers = [GroupTypeSelectionViewController(factory: factory)]
         accountNavigationController.viewControllers = [AccountViewController(factory: factory)]
-        groupsNavigationController.tabBarItem = ESTabBarItem(MainTabBarItem(), title: nil, image: UIImage(named: "home"), selectedImage: UIImage(named: "home"))
-        nav2.tabBarItem = ESTabBarItem(MainTabBarItem(), title: nil, image: UIImage(named: "add"), selectedImage: UIImage(named: "add"))
-        accountNavigationController.tabBarItem = ESTabBarItem(MainTabBarItem(), title: nil, image: UIImage(named: "user"), selectedImage: UIImage(named: "user"))
+        
+        groupsNavigationController.tabBarItem = ESTabBarItem(
+            MainTabBarItem(),
+            title: nil,
+            image: UIImage(named: "home"),
+            selectedImage: UIImage(named: "home")
+        )
+        nav2.tabBarItem = ESTabBarItem(
+            MainTabBarItem(),
+            title: nil,
+            image: UIImage(named: "add"),
+            selectedImage: UIImage(named: "add")
+        )
+        accountNavigationController.tabBarItem = ESTabBarItem(
+            MainTabBarItem(),
+            title: nil,
+            image: UIImage(named: "user"),
+            selectedImage: UIImage(named: "user")
+        )
         
         viewControllers = [groupsNavigationController, nav2, accountNavigationController]
     }

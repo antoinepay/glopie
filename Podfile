@@ -12,6 +12,7 @@ target 'Glopie' do
 	pod "ESTabBarController-swift"
 	pod 'FontAwesome.swift'
 	pod 'SDWebImage', '~> 4.0'
+	pod 'lottie-ios'
   # Pods for Glopie
 
 end

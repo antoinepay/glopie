@@ -14,8 +14,15 @@ protocol GroupRepository {
 protocol GroupViewContract: class {
     func userGroupsFetched(_ userGroups: [UserGroup])
     func handleUserGroupsError(_ error: HTTPError)
-    func groupTypesFetched(_ groupTypes: [GroupType])
+    func groupTypesFetched(_ groupTypesModules: ([GroupType], [ModuleType]))
     func handleGroupTypesError(_ error: HTTPError)
+}
+
+extension GroupViewContract {
+    func userGroupsFetched(_ userGroups: [UserGroup]) {}
+    func handleUserGroupsError(_ error: HTTPError) {}
+    func groupTypesFetched(_ groupTypesModules: ([GroupType], [ModuleType])) {}
+    func handleGroupTypesError(_ error: HTTPError) {}
 }
 
 class GroupRepositoryImplementation: GroupRepository {
@@ -84,7 +91,7 @@ class GroupRepositoryImplementation: GroupRepository {
         }
     }
 
-    private func fetchGroupTypesAction(from user: User, callback: @escaping (Result<[GroupType], HTTPError>) -> Void) {
+    private func fetchGroupTypesAction(from user: User, callback: @escaping (Result<([GroupType], [ModuleType]), HTTPError>) -> Void) {
         let userAccess = ["email":user.email, "token":user.token, "appVersion":10] as [String : Any]
         do {
             let jsonUser = try JSONSerialization.data(withJSONObject: userAccess, options: .prettyPrinted)
@@ -105,8 +112,8 @@ class GroupRepositoryImplementation: GroupRepository {
                                 callback(Result.error(error))
                                 return
                         }
-                        let groupTypes = self.parser.parseGroupTypes(groupTypes: groupTypesArray, moduleTypes: moduleTypesArray)
-                        callback(Result.value(groupTypes))
+                        let groupTypesModules = self.parser.parseGroupTypes(groupTypes: groupTypesArray, moduleTypes: moduleTypesArray)
+                        callback(Result.value(groupTypesModules))
                     case let .error(error):
                         callback(Result.error(error))
                     }})

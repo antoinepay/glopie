@@ -11,18 +11,16 @@ import GoogleSignIn
 import FBSDKLoginKit
 import SDWebImage
 
-class AccountViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class AccountViewController: SharedViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak private var picture: UIImageView!
     @IBOutlet weak private var tableView: UITableView!
 
-    private let factory: Factory
     private var user: User?
     private var attributes: [AccountTableViewCellLabelViewModel] = []
     
     init(factory: Factory) {
-        self.factory = factory
-        super.init(nibName: "AccountViewController", bundle: nil)
+        super.init(factory: factory, nibName: "AccountViewController")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -91,6 +89,7 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
     private func setupNavigationBar() {
         let rightItem = UIBarButtonItem(image: UIImage(named: "logout"), style: .plain, target: self, action: #selector(logout))
         navigationItem.rightBarButtonItem = rightItem
+        setupNavigationTitleView(with: "Profil")
     }
     
     private func setupViewModel() {

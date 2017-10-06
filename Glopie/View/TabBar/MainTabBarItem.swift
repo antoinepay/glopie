@@ -17,14 +17,14 @@ class MainTabBarItem: ESTabBarItemContentView {
         super.init(frame: frame)
         backgroundColor = .clear
         let transform = CGAffineTransform.identity
-        imageView.transform = transform.scaledBy(x: 1.15, y: 1.15)
-        circle.frame = CGRect(x: 0.0, y: 0.0, width: 45.0, height: 45.0)
+        imageView.transform = transform.scaledBy(x: 1.3, y: 1.3)
+        circle.frame = CGRect(x: 0.0, y: 0.0, width: 42.0, height: 42.0)
         circle.layer.cornerRadius = circle.frame.size.width / 2.0
         circle.center = center
         circle.transform = CGAffineTransform(scaleX: 0, y: 0)
         addSubview(circle)
         circle.backgroundColor = UIColor(hexString: "3EE1BC")
-       
+        title = nil
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -36,6 +36,7 @@ class MainTabBarItem: ESTabBarItemContentView {
         circle.center = center
         bringSubview(toFront: imageView)
         imageView.tintColor = .white
+        imageView.center = center
         let backgroundGradient = CAGradientLayer()
         backgroundGradient.frame = frame
         backgroundGradient.colors = [UIColor(hexString: "F45C43").cgColor, UIColor(hexString: "EB3349").cgColor]
@@ -55,7 +56,7 @@ class MainTabBarItem: ESTabBarItemContentView {
         UIView.beginAnimations("big", context: nil)
         UIView.setAnimationDuration(0.2)
         let transform = CGAffineTransform.identity
-        imageView.transform = transform.scaledBy(x: 1.15, y: 1.15)
+        imageView.transform = transform.scaledBy(x: 1.3, y: 1.3)
         UIView.commitAnimations()
         completion?()
     }
@@ -79,6 +80,16 @@ class MainTabBarItem: ESTabBarItemContentView {
                 self.circle.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
             }, completion: nil)
         }
+    }
+
+    override func updateLayout() {
+        super.updateLayout()
+        let w = self.bounds.size.width
+        let h = self.bounds.size.height
+        imageView.frame = CGRect.init(x: (w - imageView.bounds.size.width) / 2.0,
+                                      y: (h - imageView.bounds.size.height) / 2.0 - 6.0,
+                                      width: imageView.bounds.size.width * 0.9,
+                                      height: imageView.bounds.size.height * 0.9)
     }
     
 }

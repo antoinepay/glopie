@@ -8,19 +8,17 @@
 import UIKit
 import Alamofire
 
-class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, GroupViewContract {
+class GroupsViewController: SharedViewController, UITableViewDelegate, UITableViewDataSource, GroupViewContract {
 
     @IBOutlet weak private var tableView: UITableView!
 
-    private let factory: Factory
     private var user: User?
     private var groups: [GroupsTableViewCellViewModel] = []
 
     lazy private var groupRepository: GroupRepository = self.factory.getGroupRepository(viewContract: self)
 
     init(factory: Factory) {
-        self.factory = factory
-        super.init(nibName: nil, bundle: nil)
+        super.init(factory: factory, nibName: "GroupsViewController")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -30,41 +28,31 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         user = User.retrieveFromUserDefaults()
-        setupViewModel()
         setupView()
         setupNavigationBar()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setPlaceholder(true)
         groupRepository.fetchUserGroups()
-        groupRepository.fetchGroupTypes()
     }
+
 
     //MARK: - GroupViewContract
 
     func userGroupsFetched(_ userGroups: [UserGroup]) {
         groups = GroupsTableViewCellViewModelMapper.viewModels(from: userGroups)
+        setPlaceholder(false)
         tableView.reloadData()
     }
 
     func handleUserGroupsError(_ error: HTTPError) {
-        print(error)
-    }
-
-    func groupTypesFetched(_ groupTypes: [GroupType]) {
-        print("groupTypesFetched")
-    }
-
-    func handleGroupTypesError(_ error: HTTPError) {
+        setPlaceholder(false)
         print(error)
     }
     
     // MARK : UITableViewDataSource
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return groups.count
@@ -95,11 +83,7 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     private func setupNavigationBar() {
-
-    }
-    
-    private func setupViewModel() {
-        /*groups.append(GroupsTableViewCellViewModel(rowHeight: 80.0, labelsFontName: "Avenir", labelsTextAlignment: NSTextAlignment.left.rawValue, userImages: [], userImagesHeight: 50, userImagesShift: 5, groupNameText: "Group name", groupNameTextSize: 16.0, groupNameTextColor: "1D1D26", groupDetailText: "This is the group detail", groupDetailTextSize: 13.0, groupDetailTextColor: "1D1D26", groupTypeText: " Working group ", groupTypeTextSize: 9.0, groupTypeTextColor: "AA0000", groupTypeBorderColor: "AA0000", groupTypeBorderWidth: 1.0))*/
+        setupNavigationTitleView(with: "Mes groupes")
     }
 
 }

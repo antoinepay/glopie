@@ -12,6 +12,7 @@ class GroupType: NSObject, Codable {
     var groupTypeId: String
     var name: String
     var detail: String
+    var logo: Data
     var modules: [ModuleType]
     
     override init() {
@@ -19,12 +20,14 @@ class GroupType: NSObject, Codable {
         name = ""
         detail = ""
         modules = []
+        logo = Data()
     }
     
-    init(groupTypeId: String, name: String, detail: String, modules: [ModuleType]) {
+    init(groupTypeId: String, name: String, detail: String, logo: Data, modules: [ModuleType]) {
         self.groupTypeId = groupTypeId
         self.name = name
         self.detail = detail
+        self.logo = logo
         self.modules = modules
     }
     

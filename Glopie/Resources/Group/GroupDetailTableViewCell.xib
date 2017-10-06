@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Book</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="GroupDetailTableViewCell" focusStyle="custom" rowHeight="132" id="KGk-i7-Jjw" customClass="GroupDetailTableViewCell" customModule="Glopie" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="132"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="131.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VPD-qR-TNR">
+                        <rect key="frame" x="15" y="0.0" width="290" height="131.5"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Sb-WJ-0hd">
+                                <rect key="frame" x="0.0" y="0.0" width="290" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTs-w5-fiN">
+                                        <rect key="frame" x="0.0" y="27.5" width="29.5" height="16.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="WTs-w5-fiN" firstAttribute="leading" secondItem="5Sb-WJ-0hd" secondAttribute="leading" id="c7y-Lf-g7K"/>
+                                    <constraint firstAttribute="bottom" secondItem="WTs-w5-fiN" secondAttribute="bottom" id="jaI-6C-pcY"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m8D-pZ-oAY">
+                                <rect key="frame" x="0.0" y="44" width="290" height="87.5"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="5Sb-WJ-0hd" firstAttribute="height" secondItem="m8D-pZ-oAY" secondAttribute="height" multiplier="0.5" id="DSb-ta-Jzz"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="VPD-qR-TNR" secondAttribute="trailing" constant="15" id="Ee6-3x-ENb"/>
+                    <constraint firstAttribute="bottom" secondItem="VPD-qR-TNR" secondAttribute="bottom" id="hre-rW-mOm"/>
+                    <constraint firstItem="VPD-qR-TNR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="sVy-MW-f7x"/>
+                    <constraint firstItem="VPD-qR-TNR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="vUN-PQ-hwI"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="titleLabel" destination="WTs-w5-fiN" id="oud-VE-kyJ"/>
+                <outlet property="valueTextField" destination="m8D-pZ-oAY" id="w4q-se-U0E"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="98"/>
+        </tableViewCell>
+    </objects>
+</document>

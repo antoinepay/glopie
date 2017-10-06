@@ -6,7 +6,7 @@ protocol JSONParser {
     func parseFacebookResponse(user: [String: Any], from type: LogType) -> User
     func parseAPIResponse(user: [String: Any], from type: LogType) -> User
     func parseUserGroups(groups: [Any]) -> [UserGroup]
-    func parseGroupTypes(groupTypes: [Any], moduleTypes: [Any]) -> [GroupType]
+    func parseGroupTypes(groupTypes: [Any], moduleTypes: [Any]) -> ([GroupType], [ModuleType])
 }
 
 class JSONParserImplementation: JSONParser {
@@ -146,17 +146,21 @@ class JSONParserImplementation: JSONParser {
         }
     }
 
-    func parseGroupTypes(groupTypes: [Any], moduleTypes: [Any]) -> [GroupType] {
-        return groupTypes.flatMap { groupType in
+    func parseGroupTypes(groupTypes: [Any], moduleTypes: [Any]) -> ([GroupType], [ModuleType]) {
+        var moduleTypesParsed: [ModuleType] = []
+        let groupTypes: [GroupType] = groupTypes.flatMap { groupType in
             guard
                 let groupType = groupType as? [String:Any],
                 let id = groupType["_id"] as? String,
                 let name = groupType["name"] as? String,
                 let detail = groupType["detail"] as? String,
+                let logo = groupType["logo"] as? [String:Any],
+                let logoDataObject = logo["data"] as? [String:Any],
+                let logoDataArray = logoDataObject["data"] as? [Any],
                 let moduleTypesArray = groupType["moduleTypes"] as? [Any] else {
                     return nil
             }
-            let moduleTypesParsed: [ModuleType] = moduleTypes.flatMap { moduleType in
+            moduleTypesParsed = moduleTypes.flatMap { moduleType in
                 guard
                     let moduleType = moduleType as? [String:Any],
                     let id = moduleType["_id"] as? String,
@@ -164,26 +168,41 @@ class JSONParserImplementation: JSONParser {
                     let addButtonBackgroundColor = moduleType["addButtonBackgroundColor"] as? String,
                     let appVersion = moduleType["appVersion"] as? Int,
                     let name = moduleType["name"] as? String,
+                    let logoObject = moduleType["logo"] as? [String:Any],
+                    let logoDataObject = logoObject["data"] as? [String:Any],
+                    let logo = logoDataObject["data"] as? [Any],
                     let detail = moduleType["detail"] as? String else {
                         return nil
                 }
+                let logoData = Data(bytes: logo as? [UInt8] ?? [])
+                return ModuleType(
+                    moduleTypeId: id,
+                    name: name,
+                    detail: detail,
+                    image: logoData,
+                    appVersion: appVersion,
+                    backgroundColor: backgroundColor,
+                    addButtonBackgroundColor: addButtonBackgroundColor
+                )
+            }
+            let moduleTypesInGroup: [ModuleType] = moduleTypesParsed.flatMap { moduleType in
                 for module in moduleTypesArray {
-                    if let module = module as? String, module == id {
-                        return ModuleType(
-                            moduleTypeId: id,
-                            name: name,
-                            detail: detail,
-                            image: Data(),
-                            appVersion: appVersion,
-                            backgroundColor: backgroundColor,
-                            addButtonBackgroundColor: addButtonBackgroundColor
-                        )
+                    if let module = module as? String, module == moduleType.moduleTypeId {
+                        return moduleType
                     }
                 }
                 return nil
             }
-            return GroupType(groupTypeId: id, name: name, detail: detail, modules: moduleTypesParsed)
+            let logoData = Data(bytes: logoDataArray as? [UInt8] ?? [])
+            return GroupType(
+                groupTypeId: id,
+                name: name,
+                detail: detail,
+                logo: logoData,
+                modules: moduleTypesInGroup
+            )
         }
+        return (groupTypes, moduleTypesParsed)
     }
 
 }
