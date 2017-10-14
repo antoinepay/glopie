@@ -39,15 +39,15 @@ class ModuleSelectionTableViewCell: UITableViewCell {
         guard let viewModel = viewModel else { return }
         UIView.animate(withDuration: 0.3, animations: {
             if self.isModuleSelected {
-                self.roundView.backgroundColor = .clear
-                self.logo.tintColor = viewModel.color
-                self.contentView.backgroundColor = UIColor(hexString: "#DCDCDC")
-                self.contentView.alpha = 0.5
-            } else {
                 self.roundView.backgroundColor = viewModel.color
                 self.logo.tintColor = .white
                 self.contentView.alpha = 1.0
                 self.contentView.backgroundColor = .white
+            } else {
+                self.roundView.backgroundColor = .clear
+                self.logo.tintColor = viewModel.color
+                self.contentView.backgroundColor = UIColor(hexString: "#DCDCDC")
+                self.contentView.alpha = 0.5
             }}, completion: { finished in  })
     }
 

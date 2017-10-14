@@ -28,4 +28,12 @@ class Factory {
             viewContract: viewContract
         )
     }
+
+    func getFriendRepository(viewContract: FriendViewContract) -> FriendRepository {
+        return FriendRepositoryImplementation(
+            client: client,
+            parser: parser,
+            viewContract: viewContract
+        )
+    }
 }

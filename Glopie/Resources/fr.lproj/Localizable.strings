@@ -15,3 +15,16 @@
 "notConnectedToInternet" = "Vous n'êtes pas connecté à Internet";
 "badParameters" = "Les paramètres fournis sont incorrects";
 "continueWithFB" = "Continuer avec Facebook";
+
+"validate" = "Valider";
+
+// GroupDetail
+
+"name" = "Nom";
+"description" = "Description";
+"accessCode" = "Lien de partage";
+"namePlaceholder" = "Entrez un nom de groupe";
+"detailPlaceholder" = "But du groupe";
+"accessCodePlaceholder" = "Disponible une fois le groupe créé";
+"groupDetailsTitle" = "Détails du groupe";
+"addUsersToGroup" = "Ajouter des utilisateurs";

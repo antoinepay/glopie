@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 
-class GroupsViewController: SharedViewController, UITableViewDelegate, UITableViewDataSource, GroupViewContract {
+class GroupsViewController: SharedViewController, UITableViewDelegate, UITableViewDataSource, GroupViewContract, FriendViewContract {
 
     @IBOutlet weak private var tableView: UITableView!
 
@@ -36,6 +36,7 @@ class GroupsViewController: SharedViewController, UITableViewDelegate, UITableVi
         super.viewWillAppear(animated)
         setPlaceholder(true)
         groupRepository.fetchUserGroups()
+        factory.getFriendRepository(viewContract: self).fetchUserFriends()
     }
 
 

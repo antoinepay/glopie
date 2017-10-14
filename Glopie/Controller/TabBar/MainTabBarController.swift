@@ -7,6 +7,7 @@
 
 import UIKit
 import ESTabBarController_swift
+import FBSDKLoginKit
 
 class MainTabBarController: ESTabBarController {
 

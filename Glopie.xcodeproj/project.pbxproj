@@ -56,6 +56,8 @@
 		8C4A70331F7C947F004259F1 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4A702E1F7C947E004259F1 /* HTTPClient.swift */; };
 		8C4A70361F7C9502004259F1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8C4A70381F7C9502004259F1 /* Localizable.strings */; };
 		8C4A703C1F7C9D60004259F1 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4A703B1F7C9D60004259F1 /* LoginRepository.swift */; };
+		8C613CB91F9198AE0049F60D /* FriendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C613CB71F9198AE0049F60D /* FriendCollectionViewCell.swift */; };
+		8C613CBA1F9198AE0049F60D /* FriendCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C613CB81F9198AE0049F60D /* FriendCollectionViewCell.xib */; };
 		8C75543E1F7CBA9900E9B0CC /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C75543D1F7CBA9800E9B0CC /* HTTPRequest.swift */; };
 		8CA6313F1F8532FC00D07FB6 /* GroupsTableViewCellViewModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA6313E1F8532FC00D07FB6 /* GroupsTableViewCellViewModelMapper.swift */; };
 		8CB126EB1F8724D7000E5AEF /* SharedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB126EA1F8724D7000E5AEF /* SharedViewController.swift */; };
@@ -81,6 +83,16 @@
 		8CB1271E1F88060A000E5AEF /* GroupDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB1271C1F88060A000E5AEF /* GroupDetailTableViewCell.swift */; };
 		8CB1271F1F88060A000E5AEF /* GroupDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CB1271D1F88060A000E5AEF /* GroupDetailTableViewCell.xib */; };
 		8CB127211F880717000E5AEF /* GroupDetailTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB127201F880717000E5AEF /* GroupDetailTableViewCellViewModel.swift */; };
+		8CB4639C1F915C7700B41DE0 /* GroupDetailUsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4639A1F915C7700B41DE0 /* GroupDetailUsersTableViewCell.swift */; };
+		8CB4639D1F915C7700B41DE0 /* GroupDetailUsersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CB4639B1F915C7700B41DE0 /* GroupDetailUsersTableViewCell.xib */; };
+		8CC68C3A1F8834F70052CCE9 /* FriendRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC68C391F8834F70052CCE9 /* FriendRepository.swift */; };
+		8CC68C3C1F88372A0052CCE9 /* FacebookFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC68C3B1F88372A0052CCE9 /* FacebookFriend.swift */; };
+		8CC68C3F1F8839350052CCE9 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC68C3D1F8839350052CCE9 /* FriendsViewController.swift */; };
+		8CC68C401F8839350052CCE9 /* FriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CC68C3E1F8839350052CCE9 /* FriendsViewController.xib */; };
+		8CC68C461F883A050052CCE9 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC68C441F883A050052CCE9 /* FriendTableViewCell.swift */; };
+		8CC68C471F883A050052CCE9 /* FriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CC68C451F883A050052CCE9 /* FriendTableViewCell.xib */; };
+		8CC68C4A1F884B820052CCE9 /* FriendTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC68C491F884B820052CCE9 /* FriendTableViewCellViewModel.swift */; };
+		8CC68C4C1F884C280052CCE9 /* FriendTableViewCellViewModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC68C4B1F884C280052CCE9 /* FriendTableViewCellViewModelMapper.swift */; };
 		8CD628FF1F7C1D4100EF010B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C677D031F7C197600134DF4 /* GoogleService-Info.plist */; };
 		8CFF30C11F86C739005F4F10 /* GroupTypeSelectionCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFF30BF1F86C739005F4F10 /* GroupTypeSelectionCollectionViewController.swift */; };
 		8CFF30C21F86C739005F4F10 /* GroupTypeSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CFF30C01F86C739005F4F10 /* GroupTypeSelectionViewController.xib */; };
@@ -148,6 +160,8 @@
 		8C4A70391F7C952C004259F1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		8C4A703A1F7C952C004259F1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8C4A703B1F7C9D60004259F1 /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
+		8C613CB71F9198AE0049F60D /* FriendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCollectionViewCell.swift; sourceTree = "<group>"; };
+		8C613CB81F9198AE0049F60D /* FriendCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendCollectionViewCell.xib; sourceTree = "<group>"; };
 		8C677D031F7C197600134DF4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8C75543D1F7CBA9800E9B0CC /* HTTPRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
 		8CA6313E1F8532FC00D07FB6 /* GroupsTableViewCellViewModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewCellViewModelMapper.swift; sourceTree = "<group>"; };
@@ -174,6 +188,16 @@
 		8CB1271C1F88060A000E5AEF /* GroupDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailTableViewCell.swift; sourceTree = "<group>"; };
 		8CB1271D1F88060A000E5AEF /* GroupDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupDetailTableViewCell.xib; sourceTree = "<group>"; };
 		8CB127201F880717000E5AEF /* GroupDetailTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		8CB4639A1F915C7700B41DE0 /* GroupDetailUsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailUsersTableViewCell.swift; sourceTree = "<group>"; };
+		8CB4639B1F915C7700B41DE0 /* GroupDetailUsersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupDetailUsersTableViewCell.xib; sourceTree = "<group>"; };
+		8CC68C391F8834F70052CCE9 /* FriendRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRepository.swift; sourceTree = "<group>"; };
+		8CC68C3B1F88372A0052CCE9 /* FacebookFriend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookFriend.swift; sourceTree = "<group>"; };
+		8CC68C3D1F8839350052CCE9 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		8CC68C3E1F8839350052CCE9 /* FriendsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendsViewController.xib; sourceTree = "<group>"; };
+		8CC68C441F883A050052CCE9 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
+		8CC68C451F883A050052CCE9 /* FriendTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendTableViewCell.xib; sourceTree = "<group>"; };
+		8CC68C491F884B820052CCE9 /* FriendTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		8CC68C4B1F884C280052CCE9 /* FriendTableViewCellViewModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCellViewModelMapper.swift; sourceTree = "<group>"; };
 		8CFF30BF1F86C739005F4F10 /* GroupTypeSelectionCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTypeSelectionCollectionViewController.swift; sourceTree = "<group>"; };
 		8CFF30C01F86C739005F4F10 /* GroupTypeSelectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupTypeSelectionViewController.xib; sourceTree = "<group>"; };
 		8CFF30C31F86C7EA005F4F10 /* GroupTypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTypeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -302,6 +326,7 @@
 				8167055C1F7D81A300198D51 /* GroupModule.swift */,
 				8167055E1F7D87EB00198D51 /* GroupType.swift */,
 				816705601F7D89B000198D51 /* ModuleType.swift */,
+				8CC68C3B1F88372A0052CCE9 /* FacebookFriend.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -353,6 +378,7 @@
 		81CDD8DD1F7F39BE007CA900 /* Group */ = {
 			isa = PBXGroup;
 			children = (
+				8CB4639B1F915C7700B41DE0 /* GroupDetailUsersTableViewCell.xib */,
 				8CB1271D1F88060A000E5AEF /* GroupDetailTableViewCell.xib */,
 				8CB127151F87FF76000E5AEF /* GroupDetailViewController.xib */,
 				8CFF30C41F86C7EA005F4F10 /* GroupTypeCollectionViewCell.xib */,
@@ -389,9 +415,10 @@
 		8C1839181F7C435A0005EB6B /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				8CC68C371F8834DD0052CCE9 /* Friends */,
 				8C7554391F7CBA1D00E9B0CC /* Shared */,
 				816705831F7DC1D500198D51 /* Core */,
-				8C4A703B1F7C9D60004259F1 /* LoginRepository.swift */,
+				8CC68C381F8834E90052CCE9 /* Login */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -405,6 +432,7 @@
 				81CDD8EF1F7FF35E007CA900 /* Shared */,
 				81CDD8DC1F7F39B1007CA900 /* Group */,
 				81CDD8D91F7F375E007CA900 /* Login */,
+				8CC68C411F88393F0052CCE9 /* Friend */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -412,6 +440,7 @@
 		8C18391A1F7C436B0005EB6B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8CC68C431F8839F30052CCE9 /* Friend */,
 				8CB127071F875C08000E5AEF /* TabBar */,
 				8CB126FA1F873556000E5AEF /* Module */,
 				8CB126F91F87354E000E5AEF /* Group */,
@@ -422,6 +451,7 @@
 		8C18391B1F7C43720005EB6B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				8CC68C481F884B740052CCE9 /* Friend */,
 				8CB126FF1F873A7F000E5AEF /* Module */,
 				81092E3E1F828F5700D11F6B /* Account */,
 				814FCA731F83DB0100BFAB6C /* Groups */,
@@ -432,6 +462,7 @@
 		8C18391C1F7C43860005EB6B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8CC68C421F8839480052CCE9 /* Friend */,
 				8CB127041F875633000E5AEF /* Lottie */,
 				8CB126F81F872F79000E5AEF /* Module */,
 				8191F9081F807C4D00093ADB /* Account */,
@@ -531,6 +562,7 @@
 				8CFF30C31F86C7EA005F4F10 /* GroupTypeCollectionViewCell.swift */,
 				8CB127181F88009C000E5AEF /* GroupDetailHeaderView.swift */,
 				8CB1271C1F88060A000E5AEF /* GroupDetailTableViewCell.swift */,
+				8CB4639A1F915C7700B41DE0 /* GroupDetailUsersTableViewCell.swift */,
 			);
 			path = Group;
 			sourceTree = "<group>";
@@ -572,6 +604,58 @@
 				8CB126EF1F872504000E5AEF /* MainTabBarItem.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		8CC68C371F8834DD0052CCE9 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				8CC68C391F8834F70052CCE9 /* FriendRepository.swift */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		8CC68C381F8834E90052CCE9 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				8C4A703B1F7C9D60004259F1 /* LoginRepository.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		8CC68C411F88393F0052CCE9 /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				8CC68C3D1F8839350052CCE9 /* FriendsViewController.swift */,
+			);
+			path = Friend;
+			sourceTree = "<group>";
+		};
+		8CC68C421F8839480052CCE9 /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				8C613CB81F9198AE0049F60D /* FriendCollectionViewCell.xib */,
+				8CC68C3E1F8839350052CCE9 /* FriendsViewController.xib */,
+				8CC68C451F883A050052CCE9 /* FriendTableViewCell.xib */,
+			);
+			path = Friend;
+			sourceTree = "<group>";
+		};
+		8CC68C431F8839F30052CCE9 /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				8CC68C441F883A050052CCE9 /* FriendTableViewCell.swift */,
+				8C613CB71F9198AE0049F60D /* FriendCollectionViewCell.swift */,
+			);
+			path = Friend;
+			sourceTree = "<group>";
+		};
+		8CC68C481F884B740052CCE9 /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				8CC68C491F884B820052CCE9 /* FriendTableViewCellViewModel.swift */,
+				8CC68C4B1F884C280052CCE9 /* FriendTableViewCellViewModelMapper.swift */,
+			);
+			path = Friend;
 			sourceTree = "<group>";
 		};
 		925DC4104247EF36D4B4D3F4 /* Frameworks */ = {
@@ -672,7 +756,11 @@
 				8CB127131F8766D7000E5AEF /* loading.json in Resources */,
 				8CB1271F1F88060A000E5AEF /* GroupDetailTableViewCell.xib in Resources */,
 				8CB126FE1F873576000E5AEF /* ModuleSelectionTableViewCell.xib in Resources */,
+				8CB4639D1F915C7700B41DE0 /* GroupDetailUsersTableViewCell.xib in Resources */,
 				81092E461F832BB900D11F6B /* AccountLabelTableViewCell.xib in Resources */,
+				8CC68C471F883A050052CCE9 /* FriendTableViewCell.xib in Resources */,
+				8CC68C401F8839350052CCE9 /* FriendsViewController.xib in Resources */,
+				8C613CBA1F9198AE0049F60D /* FriendCollectionViewCell.xib in Resources */,
 				8CB126F71F872F6C000E5AEF /* ModulesSelectionViewController.xib in Resources */,
 				81092E4F1F83CAFE00D11F6B /* GroupsTableViewCell.xib in Resources */,
 				81CDD8E11F7F39D8007CA900 /* GroupsViewController.xib in Resources */,
@@ -774,18 +862,24 @@
 				8CFF30C11F86C739005F4F10 /* GroupTypeSelectionCollectionViewController.swift in Sources */,
 				8CB126F61F872F6C000E5AEF /* ModulesSelectionViewController.swift in Sources */,
 				8191F9021F800BA200093ADB /* UIImage.swift in Sources */,
+				8CC68C3C1F88372A0052CCE9 /* FacebookFriend.swift in Sources */,
 				81CDD8EC1F7F59AD007CA900 /* Color.swift in Sources */,
 				8C43A7961F7BF4AA001C6332 /* User.swift in Sources */,
 				8CB126F01F872504000E5AEF /* MainTabBarController.swift in Sources */,
 				81092E491F83C4DB00D11F6B /* GroupsNavigationController.swift in Sources */,
 				8C4A70291F7C93D3004259F1 /* TargetSettings.swift in Sources */,
+				8CC68C4C1F884C280052CCE9 /* FriendTableViewCellViewModelMapper.swift in Sources */,
 				8CB126F11F872504000E5AEF /* MainTabBarItem.swift in Sources */,
 				8C4A702F1F7C947F004259F1 /* JSONParserImplementation.swift in Sources */,
 				8C43A77B1F7BE7EE001C6332 /* LoginViewController.swift in Sources */,
+				8CC68C3A1F8834F70052CCE9 /* FriendRepository.swift in Sources */,
 				8C4A70321F7C947F004259F1 /* Factory.swift in Sources */,
+				8CC68C4A1F884B820052CCE9 /* FriendTableViewCellViewModel.swift in Sources */,
 				81CDD8EB1F7F59AD007CA900 /* UIButton.swift in Sources */,
 				8CB127161F87FF76000E5AEF /* GroupDetailViewController.swift in Sources */,
+				8C613CB91F9198AE0049F60D /* FriendCollectionViewCell.swift in Sources */,
 				816705641F7D8DA500198D51 /* ReminderModule.swift in Sources */,
+				8CC68C461F883A050052CCE9 /* FriendTableViewCell.swift in Sources */,
 				8CB126FD1F873576000E5AEF /* ModuleSelectionTableViewCell.swift in Sources */,
 				8C4A703C1F7C9D60004259F1 /* LoginRepository.swift in Sources */,
 				816705741F7DA0C700198D51 /* Thing.swift in Sources */,
@@ -803,7 +897,9 @@
 				81CDD8E01F7F39D8007CA900 /* GroupsViewController.swift in Sources */,
 				8CFF30C81F86CB9B005F4F10 /* GroupTypeViewModel.swift in Sources */,
 				8191F9061F807C4400093ADB /* AccountViewController.swift in Sources */,
+				8CB4639C1F915C7700B41DE0 /* GroupDetailUsersTableViewCell.swift in Sources */,
 				8C4A70331F7C947F004259F1 /* HTTPClient.swift in Sources */,
+				8CC68C3F1F8839350052CCE9 /* FriendsViewController.swift in Sources */,
 				816705701F7D99AE00198D51 /* Todo.swift in Sources */,
 				8CFF30CA1F86DE83005F4F10 /* GroupTypeViewModelMapper.swift in Sources */,
 				8C75543E1F7CBA9900E9B0CC /* HTTPRequest.swift in Sources */,

@@ -106,9 +106,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, LoginViewContr
     private func setupView() {
         glopieImage.image = UIImage(named: "GlopieIcon.png")
         
-        googleSignInButton.setTitle("Continue with google", for: .normal)
+        googleSignInButton.setTitle("Continue with Google", for: .normal)
         googleSignInButton.setTitleColor(UIColor(hexString: "555555"), for: .normal)
-        googleSignInButton.titleLabel?.font = UIFont(name: "Avenie", size: 15.0)
+        googleSignInButton.titleLabel?.font = UIFont(name: "Avenir", size: 15.0)
         googleSignInButton.backgroundColor = .white
         googleSignInButton.layer.cornerRadius = 4
         googleSignInButton.setImage(UIImage(named: "googleIcon"), for: UIControlState.normal)
@@ -118,7 +118,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, LoginViewContr
         
         facebookButton.setTitle("continueWithFB".localized(), for: .normal)
         facebookButton.setTitleColor(.white, for: .normal)
-        facebookButton.titleLabel?.font = UIFont(name: "Avenie", size: 15.0)
+        facebookButton.titleLabel?.font = UIFont(name: "Avenir", size: 15.0)
         facebookButton.backgroundColor = UIColor(hexString: "3C5193")
         facebookButton.layer.cornerRadius = 4
         facebookButton.setImage(UIImage(named: "facebookIcon"), for: UIControlState.normal)

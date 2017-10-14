@@ -18,6 +18,7 @@ class UserGroup: NSObject, Codable {
     var groupModules: [GroupModule]
     var users: [User]
     var usersPending: [User]
+    var image: Data
     
     override init() {
         userGroupId = "0"
@@ -28,9 +29,10 @@ class UserGroup: NSObject, Codable {
         groupModules = []
         users = []
         usersPending = []
+        image = Data()
     }
     
-    init(userGroupId: String, name: String, detail: String, accessCode: String, groupType: GroupType, groupModules: [GroupModule], users: [User], usersPending: [User]){
+    init(userGroupId: String, name: String, detail: String, accessCode: String, groupType: GroupType, groupModules: [GroupModule], users: [User], usersPending: [User], image: Data){
         self.userGroupId = userGroupId
         self.name = name
         self.detail = detail
@@ -39,6 +41,7 @@ class UserGroup: NSObject, Codable {
         self.groupModules = groupModules
         self.users =  users
         self.usersPending = usersPending
+        self.image = image
     }
     
     static let empty = UserGroup()

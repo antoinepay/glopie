@@ -7,6 +7,7 @@ protocol JSONParser {
     func parseAPIResponse(user: [String: Any], from type: LogType) -> User
     func parseUserGroups(groups: [Any]) -> [UserGroup]
     func parseGroupTypes(groupTypes: [Any], moduleTypes: [Any]) -> ([GroupType], [ModuleType])
+    func parseFacebookFriends(friendsArray: [Any]) -> [FacebookFriend]
 }
 
 class JSONParserImplementation: JSONParser {
@@ -90,7 +91,8 @@ class JSONParserImplementation: JSONParser {
                 groupType: groupType,
                 groupModules: groupModules,
                 users: users,
-                usersPending: pendingUsers
+                usersPending: pendingUsers,
+                image: Data()
             )
             }
         }
@@ -205,4 +207,15 @@ class JSONParserImplementation: JSONParser {
         return (groupTypes, moduleTypesParsed)
     }
 
+    func parseFacebookFriends(friendsArray: [Any]) -> [FacebookFriend] {
+        return friendsArray.flatMap { f in
+            guard
+                let friendDictionary = f as? [String:Any],
+                let name = friendDictionary["name"] as? String,
+                let id = friendDictionary["id"] as? String else { return nil }
+            let idString = String(id)
+            let profilePictureLink = "http://graph.facebook.com/"+idString+"/picture?type=large"
+            return FacebookFriend(id: idString, name: name, profilePictureLink: profilePictureLink)
+        }
+    }
 }

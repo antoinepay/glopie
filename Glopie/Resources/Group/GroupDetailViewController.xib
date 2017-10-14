@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GroupDetailViewController" customModule="Glopie" customModuleProvider="target">
             <connections>
                 <outlet property="tableView" destination="c67-kU-n8O" id="cYj-YN-Id9"/>
+                <outlet property="validateButton" destination="3bj-Jw-PEu" id="HFu-Fy-uTT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,15 +23,28 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c67-kU-n8O">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3bj-Jw-PEu">
+                    <rect key="frame" x="10" y="607" width="355" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="9TI-qk-f0a"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="validateAction:" destination="-1" eventType="touchUpInside" id="z1D-xI-K7j"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="c67-kU-n8O" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="3Q1-XD-AU9"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="c67-kU-n8O" secondAttribute="bottom" id="9pE-VZ-e2F"/>
+                <constraint firstItem="3bj-Jw-PEu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="DZ9-ri-59S"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3bj-Jw-PEu" secondAttribute="trailing" constant="10" id="JOU-OT-iqI"/>
+                <constraint firstItem="3bj-Jw-PEu" firstAttribute="top" secondItem="c67-kU-n8O" secondAttribute="bottom" constant="10" id="JcW-vX-Ixy"/>
                 <constraint firstItem="c67-kU-n8O" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="NAD-au-GRj"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="3bj-Jw-PEu" secondAttribute="bottom" constant="10" id="PE3-xC-nbz"/>
                 <constraint firstItem="c67-kU-n8O" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="iAD-1U-pC8"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
